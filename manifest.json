@@ -1,0 +1,6 @@
+{
+    "name": "traceroute",
+    "version": "1.0",
+    "description": "traceroute for website browsing",
+    "manifest_version": 2
+  }
