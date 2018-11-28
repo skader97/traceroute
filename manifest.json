@@ -1,6 +1,16 @@
 {
-    "name": "traceroute",
-    "version": "1.0",
-    "description": "traceroute for website browsing",
-    "manifest_version": 2
-  }
+  "name": "A browser action with a popup that changes the page color",
+  "description": "Change the current page color",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "http://*/"
+  ],
+  "browser_action": {
+      "default_title": "Set this page's color.",
+      "default_icon": "icon.png",
+      "default_popup": "popup.html"
+  },
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'",
+  "manifest_version": 2
+}
