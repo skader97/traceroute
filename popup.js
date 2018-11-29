@@ -16,7 +16,8 @@ testButton.onclick = function(element) {
       	req.onreadystatechange = function() {
           if (req.readyState == 4) {
             if (req.status == 200) {
-              alert(req.responseText);
+              var obj = JSON.parse(req.responseText); 
+              alert(obj.country);
               document.write("OK");
             }
           }
