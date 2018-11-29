@@ -4,8 +4,6 @@
 
 'use strict';
 
-let testButton = document.getElementById('testButton');
-
 chrome.tabs.getSelected(null, function(tab) { 
   var tabURL = tab.url;
   var pingURL = "http://ip-api.com/json/#" + tabURL;
