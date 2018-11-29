@@ -7,12 +7,10 @@
 let testButton = document.getElementById('testButton');
 
 testButton.onclick = function(element) {
-  alert("TEST");
   chrome.tabs.getSelected(null, 
       function(tab) { 
         var tabURL = tab.url;
-        alert(tabURL);
-        var pingURL = "http://ip-api.com/#" + tabURL;
+        var pingURL = "http://ip-api.com/json/#" + tabURL;
         var req = new XMLHttpRequest();
       	req.open("GET", pingURL, true);
       	req.onreadystatechange = function() {
