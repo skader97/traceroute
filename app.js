@@ -28,6 +28,33 @@ io.on('connection', function(socket){
   console.log('Socket connection established');
   io.emit('chat message','message here');
   console.log('sent');
+
+socket.on('sendURL', function(msg){
+  console.log('receiving: url = ', msg);
+  const Traceroute = require('nodejs-traceroute');
+
+try {
+    const tracer = new Traceroute();
+    tracer
+        .on('pid', (pid) => {
+            console.log(`pid: ${pid}`);
+        })
+        .on('destination', (destination) => {
+            console.log(`destination: ${destination}`);
+        })
+        .on('hop', (hop) => {
+            console.log(`${JSON.stringify(hop.ip)}`);
+            io.emit('trace', `${JSON.stringify(hop.ip)}`);
+        })
+        .on('close', (code) => {
+            console.log(`close: code ${code}`);
+        });
+
+    tracer.trace(msg);
+} catch (ex) {
+    console.log(ex);
+}
+});
 });
 /* Create HTTP server for node application */
 var server2 = http.createServer(app);
