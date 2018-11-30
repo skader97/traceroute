@@ -1,24 +1,21 @@
 {
-<<<<<<< HEAD
+
   "name": "Traceroute",
   "description": "A browser extension that alerts users where the IP address is located on the webpage they are on",
-=======
-  "name": "A browser action",
-  "description": "Change the current page color",
->>>>>>> 4dcb8ad6f5a2019d1c850c27dc7f89a12f0e0fa3
+
   "version": "1.0",
   "permissions": [
     "activeTab",
     "http://*/"
   ],
   "browser_action": {
-<<<<<<< HEAD
+
       "default_title": "Traceroute",
       "default_icon": "icon.png",
-=======
+
       "default_title": "Set this page's color.",
       "default_icon": "globe.png",
->>>>>>> 4dcb8ad6f5a2019d1c850c27dc7f89a12f0e0fa3
+
       "default_popup": "popup.html"
   },
 
