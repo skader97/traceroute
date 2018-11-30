@@ -19,11 +19,22 @@ testButton.onclick = function(element) {
           if (req.readyState == 4) {
             if (req.status == 200) {
               alert(req.responseText);
-              document.write("OK");
+              document.write("HERE");
+
             }
           }
         };
       req.send();
       });
+  /* Connects to the socket server */
+var socket = io.connect('http://localhost:3002');
+socket.on('connect', function() {
+  console.log('Client connected');
+  socket.emit('hi','everyone');
+});
+socket.on('chat message', function(msg){
+  console.log('got messgae: ', msg);
+});
 };
+
 
