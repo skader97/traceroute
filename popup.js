@@ -40,5 +40,5 @@ socket.on('connect', function() {
 socket.on('chat message', function(msg){
   console.log('got messgae: ', msg);
 });
-};
+
 
