@@ -24,8 +24,14 @@ const apiKey = 'a4e2bf0c8ffe58c1a96b98b54d9bfab4'
         req.onreadystatechange = function() {
           if (req.readyState == 4) {
             if (req.status == 200) {
+<<<<<<< HEAD
               var obj = JSON.parse(req.responseText); 
               document.write("<h2>This website IP address is located in " + obj.country_name + "</h2>");
+=======
+              alert(req.responseText);
+              document.write("HERE");
+
+>>>>>>> 4dcb8ad6f5a2019d1c850c27dc7f89a12f0e0fa3
             }
           }
         };
@@ -40,6 +46,20 @@ socket.on('trace', function(msg){
   console.log(msg);
 });
       });
+<<<<<<< HEAD
 
+
+=======
+  /* Connects to the socket server */
+var socket = io.connect('http://localhost:3002');
+socket.on('connect', function() {
+  console.log('Client connected');
+  socket.emit('hi','everyone');
+});
+socket.on('chat message', function(msg){
+  console.log('got messgae: ', msg);
+});
+};
+>>>>>>> 4dcb8ad6f5a2019d1c850c27dc7f89a12f0e0fa3
 
 

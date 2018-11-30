@@ -28,6 +28,7 @@ io.on('connection', function(socket){
   console.log('Socket connection established');
   io.emit('chat message','message here');
   console.log('sent');
+<<<<<<< HEAD
 
 socket.on('sendURL', function(msg){
   console.log('receiving: url = ', msg);
@@ -55,6 +56,8 @@ try {
     console.log(ex);
 }
 });
+=======
+>>>>>>> 4dcb8ad6f5a2019d1c850c27dc7f89a12f0e0fa3
 });
 /* Create HTTP server for node application */
 var server2 = http.createServer(app);
