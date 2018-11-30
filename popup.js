@@ -13,7 +13,7 @@ testButton.onclick = function(element) {
           if (req.readyState == 4) {
             if (req.status == 200) {
               var obj = JSON.parse(req.responseText); 
-              alert(obj.country);
+              alert(obj.city + ", " + obj.region + ", " + obj.country);
               document.write("OK");
             }
           }
