@@ -1,13 +1,13 @@
 {
-  "name": "A browser action with a popup that changes the page color",
-  "description": "Change the current page color",
+  "name": "Traceroute",
+  "description": "A browser extension that alerts users where the IP address is located on the webpage they are on",
   "version": "1.0",
   "permissions": [
     "activeTab",
     "http://*/"
   ],
   "browser_action": {
-      "default_title": "Set this page's color.",
+      "default_title": "Traceroute",
       "default_icon": "icon.png",
       "default_popup": "popup.html"
   },
