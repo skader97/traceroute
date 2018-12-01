@@ -5,13 +5,22 @@
 'use strict';
 
 const apiKey = 'a4e2bf0c8ffe58c1a96b98b54d9bfab4'
-alert(imgs.length); 
-chrome.tabs.getSelected(null, 
-function(tab) { 
+chrome.tabs.getSelected(null, function(tab) { 
   var domain = getHostName(tab.url);
-  
   var pingURL = "http://api.ipapi.com/api/" + domain + '?access_key=' + apiKey;
-  // get request to API 
+  get_request(pingURL);
+});
+
+function getHostName(url) {
+  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
+  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
+    return match[2];
+  } else {
+      return null;
+  }
+}
+
+function get_request(pingURL) {
   var req = new XMLHttpRequest();
   req.open("GET", pingURL, true);
   req.onreadystatechange = function() {
@@ -29,13 +38,4 @@ function(tab) {
     }
   };
   req.send();
-});
-
-function getHostName(url) {
-  var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
-  if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
-    return match[2];
-  } else {
-      return null;
-  }
 }
