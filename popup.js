@@ -4,7 +4,6 @@
 
 'use strict';
 
-let ipButton = document.getElementById('IPbutton');
 const apiKey = 'a4e2bf0c8ffe58c1a96b98b54d9bfab4'
 // ipButton.onclick = function(element) {
   chrome.tabs.getSelected(null, 
