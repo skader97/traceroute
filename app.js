@@ -26,8 +26,6 @@ socketServer.listen(3002, function(){
 /* This event will emit when client connects to the socket server */
 io.on('connection', function(socket){
   console.log('Socket connection established');
-  io.emit('chat message','message here');
-  console.log('sent');
 
 
 socket.on('sendURL', function(msg){
