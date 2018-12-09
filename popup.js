@@ -1,11 +1,12 @@
 'use strict';
 
 const apiKey = 'a4e2bf0c8ffe58c1a96b98b54d9bfab4'
-chrome.tabs.getSelected(null, function(tab) { 
+chrome.tabs.getSelected(null, function(tab) {
+  document.write("<h3>Your traffic is traversing the following regions </h3>"); 
   var domain = getHostName(tab.url);
   
   // get request to API 
-  get_request(domain); 
+  // get_request(domain); 
   /* Connects to the socket server */
   var socket = io.connect('http://localhost:3002');
   socket.on('connect', function() {
@@ -23,9 +24,6 @@ var socket = io.connect('http://localhost:3002');
 socket.on('connect', function() {
   console.log('Client connected');
 });
-// socket.on('chat message', function(msg){
-//   console.log('got messgae: ', msg);
-// });
 
 function getHostName(url) {
   var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
@@ -48,9 +46,9 @@ function get_request(domain) {
         var region = obj.region_name; 
         if (country !== null) {
           if (region) {
-            document.write("<h2>IP: " + domain + " location: " + region + ", " + country + "</h2>");
+            document.write("<h4>IP: " + domain + " location: " + region + ", " + country + "</h4>");
           } else {
-            document.write("<h2>IP: " + domain + " location: " + country + "</h2>");
+            document.write("<h4>IP: " + domain + " location: " + country + "</h4>");
           }
         } 
       }
