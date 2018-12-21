@@ -4,3 +4,10 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/streets-v9',
 });
 console.log('Hello browser');
+
+function addMarker(lat, lon) {
+  var a = [lon, lat];
+  var marker = new mapboxgl.Marker()
+  .setLngLat(a)
+  .addTo(map);	
+}
