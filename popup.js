@@ -24,6 +24,7 @@ socket.on('connect', function() {
 });
 
 function getHostName(url) {
+  // get domain only
   var match = url.match(/:\/\/(www[0-9]?\.)?(.[^/:]+)/i);
   if (match != null && match.length > 2 && typeof match[2] === 'string' && match[2].length > 0) {
     return match[2];
@@ -43,16 +44,19 @@ function get_request(domain) {
         var country = obj.country_name;
         var region = obj.region_name; 
         var lat = obj.latitude;
-        var lon = obj.longitude; 
-        addMarker(lat, lon);
+        var lon = obj.longitude;
         if (country !== null) {
           if (region) {
+            var descrip = region + ', ' + country;
+            addMarker(lat, lon, descrip); 
             let div = document.createElement('div');
             div.innerHTML = "<h4>IP: " + domain + " location: " + region + ", " + country + "</h4>";
             document.body.appendChild(div);
             var map = document.getElementBysId("map_canvas");
             map.insertBefore(div, map.childNodes[0]);
           } else {
+            var descrip = country; 
+            addMarker(lat, lon, descrip); 
             let div = document.createElement('div');
             div.innerHTML = "<h4>IP: " + domain + " location: " + country + "</h4>";
             document.body.appendChild(div);

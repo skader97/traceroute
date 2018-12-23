@@ -5,9 +5,11 @@ var map = new mapboxgl.Map({
 });
 console.log('Hello browser');
 
-function addMarker(lat, lon) {
+function addMarker(lat, lon, descrip) {
   var a = [lon, lat];
   var marker = new mapboxgl.Marker()
   .setLngLat(a)
+  .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+  .setHTML('<p>' + descrip + '</p>'))
   .addTo(map);	
 }
